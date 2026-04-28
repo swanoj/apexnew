@@ -1,0 +1,274 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* APEX Digital — dark futuristic */
+  --background: #0a0a0a;
+  --foreground: #f5f7fa;
+  --card: #121212;
+  --card-foreground: #f5f7fa;
+  --popover: #0f0f10;
+  --popover-foreground: #f5f7fa;
+  --primary: #00f0ff;
+  --primary-foreground: #0a0a0a;
+  --secondary: #161618;
+  --secondary-foreground: #f5f7fa;
+  --muted: #161618;
+  --muted-foreground: #8a8f98;
+  --accent: #3b82f6;
+  --accent-foreground: #f5f7fa;
+  --destructive: #ef4444;
+  --destructive-foreground: #f5f7fa;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #00f0ff;
+
+  --apex-cyan: #00f0ff;
+  --apex-blue: #3b82f6;
+  --apex-orange: #ff6b00;
+  --apex-charcoal: #121212;
+  --apex-black: #0a0a0a;
+  --apex-white: #f5f7fa;
+  --apex-grid: rgba(0, 240, 255, 0.06);
+
+  --radius: 0.625rem;
+
+  --sidebar: #0a0a0a;
+  --sidebar-foreground: #f5f7fa;
+  --sidebar-primary: #00f0ff;
+  --sidebar-primary-foreground: #0a0a0a;
+  --sidebar-accent: #161618;
+  --sidebar-accent-foreground: #f5f7fa;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #00f0ff;
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-apex-cyan: var(--apex-cyan);
+  --color-apex-blue: var(--apex-blue);
+  --color-apex-orange: var(--apex-orange);
+  --color-apex-charcoal: var(--apex-charcoal);
+  --color-apex-black: var(--apex-black);
+  --color-apex-white: var(--apex-white);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html,
+  body {
+    @apply bg-background text-foreground;
+    overscroll-behavior: none;
+  }
+  body {
+    background-color: #0a0a0a;
+    background-image:
+      radial-gradient(ellipse at 15% 0%, rgba(0, 240, 255, 0.08), transparent 55%),
+      radial-gradient(ellipse at 85% 100%, rgba(59, 130, 246, 0.07), transparent 55%),
+      radial-gradient(ellipse at 50% 50%, rgba(255, 107, 0, 0.03), transparent 70%);
+  }
+}
+
+/* ============ APEX UI utilities ============ */
+
+.apex-grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position: -1px -1px;
+}
+
+.apex-grid-fine {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+.apex-glass {
+  background: linear-gradient(180deg, rgba(20, 20, 22, 0.85) 0%, rgba(12, 12, 14, 0.92) 100%);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 30px 80px -20px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(0, 240, 255, 0.04);
+}
+
+.apex-glass-strong {
+  background: linear-gradient(180deg, rgba(18, 18, 20, 0.92) 0%, rgba(10, 10, 12, 0.96) 100%);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  border: 1px solid rgba(0, 240, 255, 0.12);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 40px 100px -20px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(0, 240, 255, 0.06),
+    0 0 80px -20px rgba(0, 240, 255, 0.25);
+}
+
+.apex-neon-cyan {
+  text-shadow:
+    0 0 8px rgba(0, 240, 255, 0.55),
+    0 0 22px rgba(0, 240, 255, 0.25);
+}
+
+.apex-glow-cyan {
+  box-shadow:
+    0 0 0 1px rgba(0, 240, 255, 0.35),
+    0 0 24px -2px rgba(0, 240, 255, 0.45);
+}
+
+.apex-glow-orange {
+  box-shadow:
+    0 0 0 1px rgba(255, 107, 0, 0.35),
+    0 0 24px -2px rgba(255, 107, 0, 0.45);
+}
+
+.apex-scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(0, 240, 255, 0.04) 0px,
+    rgba(0, 240, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+}
+
+.apex-noise {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.4'/></svg>");
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.apex-text-gradient {
+  background: linear-gradient(135deg, #00f0ff 0%, #3b82f6 60%, #ff6b00 130%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.apex-divider {
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.4), transparent);
+  height: 1px;
+}
+
+@keyframes apex-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.apex-pulse {
+  animation: apex-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes apex-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.apex-cursor-blink {
+  animation: apex-blink 1s steps(1) infinite;
+}
+
+@keyframes apex-glitch {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(-1px, -1px); }
+  60% { transform: translate(1px, 1px); }
+  80% { transform: translate(1px, -1px); }
+}
+
+.apex-glitch:hover {
+  animation: apex-glitch 0.4s steps(2) infinite;
+}
+
+@keyframes apex-scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.apex-scanline-anim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.apex-scanline-anim::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 240, 255, 0.06) 50%,
+    transparent 100%
+  );
+  animation: apex-scan 6s linear infinite;
+}
+
+/* Scrollbars inside windows */
+.apex-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.apex-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.apex-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.18);
+  border-radius: 4px;
+}
+.apex-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.32);
+}
+
+/* Selection */
+::selection {
+  background: rgba(0, 240, 255, 0.35);
+  color: #fff;
+}
+
+/* Disable pull-to-refresh wobble on touch */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
